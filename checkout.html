@@ -373,6 +373,7 @@ const fmt = n => n.toLocaleString('vi-VN');
 const form = document.getElementById('regForm');
 const formView = document.getElementById('formView');
 const payView = document.getElementById('payView');
+const sessionId = "SS_" + Date.now();
 
 // ---- Pre-select package from ?pkg= in URL ----
 const params = new URLSearchParams(location.search);
@@ -450,7 +451,7 @@ form.addEventListener('submit',e=>{
   // Zalo prefill (best-effort)
   document.getElementById('zaloBtn').href='https://zalo.me/0768764491';
 
-  // ── Gửi dữ liệu vào Google Sheet bằng Fetch API ───────────────────
+  // ── Gửi dữ liệu vào Google Sheet ──────────────────────────────────
   const SHEET_URL = 'https://script.google.com/macros/s/AKfycbw48vIPrgGwiNZxldiXF6TfygHODSD5RDyiig7wOKNKupJiuVxT0WsEcucejWXXdnAG/exec';
   
   const fields = {
@@ -462,13 +463,13 @@ form.addEventListener('submit',e=>{
     pkg:       pkg.dataset.label,
     slot:      slot.dataset.label,
     amount:    String(price),
-    note:      note
+    note:      note,
+    sessionId: sessionId
   };
 
-  // Dùng URLSearchParams để ép định dạng chuẩn xác cho e.parameter ở Apps Script
   fetch(SHEET_URL, {
     method: 'POST',
-    mode: 'no-cors', // Bắt buộc có dòng này để không bị lỗi chéo domain (CORS)
+    mode: 'no-cors',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
     },
