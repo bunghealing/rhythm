@@ -41,7 +41,7 @@
   "offers": {
     "@type": "Offer",
     "priceCurrency": "VND",
-    "price": "1200000",
+    "price": "1800000",
     "availability": "https://schema.org/InStock"
   }
 }
@@ -500,6 +500,21 @@ section{position:relative}
   body{padding-bottom:0}
   .hero{padding-bottom:96px}
 }
+  /* Đặc quyền gói 1 năm */
+.pkg__privilege {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 246, 129, 0.15);
+  border: 1px solid rgba(255, 246, 129, 0.4);
+  color: var(--lemon);
+  padding: 6px 12px;
+  border-radius: var(--r-sm);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
 </style>
 </head>
 <body>
@@ -699,6 +714,11 @@ section{position:relative}
         <span class="pkg__tag">Được chọn nhiều nhất</span>
         <div class="pkg__name">1 năm</div>
         <div class="pkg__price">8.800.000<small> VND</small></div>
+        <!-- THÊM MỚI TỪ ĐÂY: Ghi chú đặc quyền gói 1 năm -->
+        <div class="pkg__privilege">
+        🌟 Đặc quyền: Tự do tham gia tất cả các khung giờ
+        </div>
+        <!-- KẾT THÚC THÊM MỚI -->
         <p class="pkg__fit">Xây dựng nội lực bền vững — đủ thời gian để thay đổi từ gốc.</p>
         <a class="btn" href="checkout.html?pkg=1nam">Chọn gói này</a>
       </div>
